@@ -1,0 +1,7 @@
+python
+django
+django-extensions
+django-debug-toolbar
+werkzeug
+django-environ
+django-registration-redux

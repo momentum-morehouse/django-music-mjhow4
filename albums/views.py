@@ -22,9 +22,9 @@ def add_albums(request):
 def edit_albums(request, pk):
     album = get_object_or_404(Album, pk=pk)
     if request.method == 'GET':
-        form = AlbumForm(instance=contact)
+        form = AlbumForm(instance=album)
     else:
-        form = AlbumForm(data=request.POST, instance=contact)
+        form = AlbumForm(data=request.POST, instance=album)
         if form.is_valid():
             form.save()
             return redirect(to='list_albums')
@@ -37,7 +37,7 @@ def edit_albums(request, pk):
 def delete_albums(request, pk):
     albums = get_object_or_404(Contact, pk=pk)
     if request.method == 'POST':
-        album.delete()
+        albums.delete()
         return redirect(to='list_albums')
 
     return render(request, "albums/delete_albums.html",

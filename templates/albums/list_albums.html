@@ -27,6 +27,10 @@
     </div>
     {% endif %}
 
+    <p>
+      <a href="{% url 'edit_albums' pk=album.pk %}">Edit Album</a><br>    
+      <a class="red" href="{% url 'delete_albums' pk=album.pk %}">Delete Album</a>
+    </p>
 
 
   </div>

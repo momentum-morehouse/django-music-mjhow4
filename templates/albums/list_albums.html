@@ -3,23 +3,27 @@
 {% block content %}
 <h1>All Albums</h1>
 
+<p><a href="{% url 'add_albums' %}">Add New Album</a></p>
+
 <div class="flex flex-wrap">
   {% for album in albums %}
   <div class="w-33 pa3">
     <h2>{{ album.title }}</h2>
 
 <img src={{album.image_url}} alt="picture of album">
-    {% if album.year_made %}
+    
+    {% if album.artist %}
     <div class="flex">
-      <div class="pr2"><i class="icofont-phone"></i></div>
-      <div>{{ album.year_made }}</div>
+      <div class="pr2"><i class="icofont-ui-music"></i></div>
+      <div>{{ album.artist }}</div>
     </div>
     {% endif %}
 
-    {% if album.artist %}
+
+    {% if album.year_made %}
     <div class="flex">
-      <div class="pr2"><i class="icofont-phone"></i></div>
-      <div>{{ album.artist }}</div>
+      <div class="pr2"><i class="icofont-ui-timer"></i></div>
+      <div>{{ album.year_made }}</div>
     </div>
     {% endif %}
 

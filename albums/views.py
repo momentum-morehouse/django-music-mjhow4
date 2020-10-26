@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseRedirect
 from .models import Album
 from .forms import AlbumForm
 
@@ -31,11 +32,11 @@ def edit_albums(request, pk):
 
     return render(request, "albums/edit_albums.html", {
         "form": form,
-        "albums": albums,
+        "album": album,
     })
 
 def delete_albums(request, pk):
-    albums = get_object_or_404(Contact, pk=pk)
+    albums = get_object_or_404(Album, pk=pk)
     if request.method == 'POST':
         albums.delete()
         return redirect(to='list_albums')

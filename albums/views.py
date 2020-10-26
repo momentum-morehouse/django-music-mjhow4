@@ -36,10 +36,10 @@ def edit_albums(request, pk):
     })
 
 def delete_albums(request, pk):
-    albums = get_object_or_404(Album, pk=pk)
+    album = get_object_or_404(Album, pk=pk)
     if request.method == 'POST':
-        albums.delete()
+        album.delete()
         return redirect(to='list_albums')
 
     return render(request, "albums/delete_albums.html",
-                  {"albums": albums})
+                  {"album": album})

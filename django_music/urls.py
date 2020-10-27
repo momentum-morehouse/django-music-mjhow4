@@ -20,7 +20,7 @@ from albums import views as albums_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('albums/', albums_views.list_albums, name='list_albums'),
+    path('', albums_views.list_albums, name='list_albums'),
     path('albums/add/', albums_views.add_albums, name='add_albums'),
     path('albums/<int:pk>/edit/',
          albums_views.edit_albums,
@@ -28,6 +28,9 @@ urlpatterns = [
     path('albums/<int:pk>/delete/',
          albums_views.delete_albums,
          name='delete_albums'),
+    path('albums/<int:pk>/detail/',
+         albums_views.detail_albums,
+         name='detail_albums'),
     path('accounts/', include('registration.backends.simple.urls')),
 ]
 

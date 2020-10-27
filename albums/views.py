@@ -43,3 +43,12 @@ def delete_albums(request, pk):
 
     return render(request, "albums/delete_albums.html",
                   {"album": album})
+    
+def detail_albums(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    if request.method == 'POST':
+        album.artist()
+        return redirect(to='list_albums')
+
+    return render(request, "albums/detail_albums.html",
+                  {"album": album})

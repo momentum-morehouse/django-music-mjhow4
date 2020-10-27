@@ -3,15 +3,12 @@ from .models import Album, Artist
 
 
 
-class AlbumForm(forms.ModelForm):
-    class Meta:
-        model = Album
-        fields = [
-            'title',
-            'artist',
-            'year_made',
-            'image_url',
-        ]
+class AlbumForm(forms.Form):
+    title = forms.CharField(max_length=100)
+    artist = forms.CharField(max_length=100)
+    year_made = forms.DateField()
+    image_url = forms.URLField()
+       
 
 class ArtistForm(forms.ModelForm):
     class Meta:

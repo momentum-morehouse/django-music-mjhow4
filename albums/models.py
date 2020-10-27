@@ -16,7 +16,7 @@ class Album(models.Model):
 class Artist(models.Model):
 
     name = models.CharField(max_length=100)
-    artist_facts = models.TextField(max_length=300)
+    artist_facts = models.TextField(max_length=300, null=True, blank=True)
 
     def __str__(self):
         return self.name

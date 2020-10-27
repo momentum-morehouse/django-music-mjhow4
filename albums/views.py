@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
-from .models import Album
+from .models import Album, Artist
 from .forms import AlbumForm
 
 # Create your views here.
@@ -15,7 +15,13 @@ def add_albums(request):
     else:
         form = AlbumForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            data = form.cleaned_data
+            title = data.get("title")
+            artist = data.get("artist")
+            year_made = data.get("year_made")
+            image_url = data.get("image_url")
+            artist = Artist.objects.get_or_create(name=artist)[0]
+            album = Album.objects.create(title=title, artist=artist, year_made=year_made, image_url=image_url)
             return redirect(to='list_albums')
 
     return render(request, "albums/add_albums.html", {"form": form})

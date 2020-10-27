@@ -9,7 +9,7 @@
     {{ form.as_p }}
     <p>Are you sure you want to delete {{ album.title }}?</p>
     <div>
-      <button type="submit">Delete Album</button><br />
+      <button type="submit">Delete Album</button><br> <br>
       <a href="{% url 'list_albums' %}">Cancel</a>
     </div>
   </form>

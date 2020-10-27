@@ -8,7 +8,8 @@
     {% csrf_token %}
     {{ form.as_p }}
     <div>
-      <button type="submit">Update Album</button>
+      <button type="submit">Update Album</button> <br> <br>
+      <a href="{% url 'list_albums' %}">Cancel</a>
     </div>
   </form>
 </div>

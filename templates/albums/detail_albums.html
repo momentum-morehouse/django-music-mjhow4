@@ -1,4 +1,19 @@
-{{album}}
-{% for artist in album.artists.all %}
-{{artist}}
-{% endfor %}
+<h1>WELCOME TO THE SUPER SECRET SUPER DETAIL SUPER DOPE DETAIL PAGE!</h1>
+
+<h3>HERE ARE THE SUPER DOPE ALBUM DETAILS:</h3>
+<p>Album Title: {{album}} <br>
+Date Made: {{album.year_made}}</p>
+
+<h3>HERE ARE THE SUPER DOPE ARTIST DETAILS:</h3>
+<p>Artist: {{album.artist.name}} <br>
+Artist Facts: {{album.artist.artist_facts}}</p>
+
+<div>
+    <form action="{% url 'list_albums' %}" method="GET">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div>
+        <button type="submit">I've Seen Enough</button>
+      </div>
+    </form>
+  </div>
